@@ -135,7 +135,7 @@ All data updating are updated immediately from the perspective of your python pr
 You can force all updates to be written to the hard disk with
 
 ```python
-db.commit()
+db.commit() # But you do not need to do it.
 ```
 
 but **you do NOT need** to do so, since it is slow, and we have already optimized it. Or you can use
@@ -159,6 +159,20 @@ import sfdb
 
 with sfdb.Database(filename='test.db') as db:
     print(db['hello'])
+```
+
+Or if you like "tqdm" you can use
+
+```python
+import sfdb
+from tqdm import tqdm
+
+db = sfdb.Database(filename='test.db')
+
+for key, value in tqdm(db):
+    # You will have a nice progress bar provided by tqdm.
+    print(key)
+    print(value)
 ```
 
 # Licence
