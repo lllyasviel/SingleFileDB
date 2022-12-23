@@ -98,7 +98,7 @@ for key, value in db:
     print(value)
 ```
 
-### 4. Everything Thread-Safe
+### 4. Thread-Safe Everything
 
 Everything is thread-safe. 
 
