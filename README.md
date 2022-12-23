@@ -14,7 +14,7 @@ No installation. No dependencies.
 
 The only one python file has less than 150 lines of codes and only uses Python 3 standard libraries.
 
-# Get Started
+# Just try this
 
 ```python
 import sfdb
@@ -31,7 +31,7 @@ del db['bad']
 print(db['123'])  # Will print "hi".
 ```
 
-# Features
+# And you will immediately get
 
 ### 1. Human-Readable Storage
 
