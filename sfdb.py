@@ -1,13 +1,9 @@
 import datetime
 import json
-import os
 import sqlite3
 import sys
 import threading
 import time
-
-root = './SDB/'
-os.makedirs(root, exist_ok=True)
 
 
 def get_time_emb():
@@ -18,7 +14,7 @@ def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
 
-class SepaDB:
+class Database:
     def __init__(self, filename):
         self._filename = filename
         self._sqlite = sqlite3.connect(self._filename, check_same_thread=False)
