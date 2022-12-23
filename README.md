@@ -100,7 +100,11 @@ for key, value in db:
 
 ### 4. Everything Thread-Safe
 
-**Everything is thread-safe. Do anything you want to do. Your data are safe.**
+Everything is thread-safe. 
+
+Do anything you want to do. 
+
+Your data are safe.
 
 ### 5. Reliable Storage and Automatic Damage Repair
 
@@ -110,15 +114,52 @@ Quit you application with Ctrl+C does not damage the integrity of database struc
 
 A reference is [here](https://www.sqlite.org/howtocorrupt.html):
 
-    An SQLite database is highly resistant to corruption. If an application crash, or an operating-system crash, or even a power failure occurs in the middle of a transaction, the partially written transaction should be automatically rolled back the next time the database file is accessed. The recovery process is fully automatic and does not require any action on the part of the user or the application.
+    An SQLite database is highly resistant to corruption. If an application crash, 
+    or an operating-system crash, or even a power failure occurs in the middle of a 
+    transaction, the partially written transaction should be automatically rolled 
+    back the next time the database file is accessed. The recovery process is fully 
+    automatic and does not require any action on the part of the user or the application.
 
 ### 6. Minimal Hard Disk Write
 
-123
+The hard disk writing is optimized to speed up the processing and protect your SSD/HDD drive.
+
+All data updating are updated immediately from the perspective of your python program (*i.e.*, your code logic), but the actual writing to the hard disk only happens when 
+
+(1) your program quit, **OR**
+
+(2) every 16384 (16 * 1024) updates, **OR**
+
+(3) every 60 seconds.
+
+You can force all updates to be written to the hard disk with
+
+```python
+db.commit()
+```
+
+but **you do NOT need** to do so, since it is slow, and we have already optimized it. Or you can use
+
+```python
+db.close()  # Close a database when you quit (but you do not need to do it).
+```
+
+or
+
+```python
+del db  # Dispose the instance when you quit (but you do not need to do it).
+```
 
 ### 7. Professional Language Feature Support
 
-123
+If you want to look professional, you can use "with" context manager like
+
+```python
+import sfdb
+
+with sfdb.Database(filename='test.db') as db:
+    print(db['hello'])
+```
 
 # Licence
 
