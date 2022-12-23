@@ -47,3 +47,7 @@ The one single python file only uses Python 3 standard libraries, *with less tha
 ### 7. Professional Language Feature Support
 
 123
+
+# Licence
+
+[CC-By 4.0](https://creativecommons.org/licenses/by/4.0/) - Do whatever you want to do.
