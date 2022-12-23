@@ -1,16 +1,20 @@
-import datetime
-import json
-import sqlite3
+# Single File Database
+# Written by Lvmin Zhang
+# 2022 Dec 23 at Stanford University
+
 import sys
-import threading
+import json
 import time
+import sqlite3
+import datetime
+import threading
 
 
-def get_time_emb():
+def now():
     return datetime.datetime.now().strftime("%Y/%m/%d-%H:%M:%S")
 
 
-def eprint(*args, **kwargs):
+def log(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
 
@@ -24,7 +28,7 @@ class Database:
         self._iterating = False
         self._commit_timer = time.time()
         self._commit_counter = 0
-        eprint(f'SFDB[{self._filename}] Database ready with {len(self)} rows.')
+        log(f'SFDB[{self._filename}] Database ready with {len(self)} rows.')
 
     def _sanity_check(self):
         assert self._sqlite is not None, f'SFDB[{self._filename}] Database already closed.'
@@ -64,7 +68,7 @@ class Database:
     def __setitem__(self, key, value):
         self._sanity_check()
         self._key_is_str(key)
-        feed = (key, get_time_emb(), json.dumps(value))
+        feed = (key, now(), json.dumps(value))
         with self._lock:
             self._sqlite.execute("INSERT OR REPLACE INTO DATA(ID, TIME, JSON) VALUES(?, ?, ?)", feed)
             self._commit_counter += 1
@@ -100,7 +104,7 @@ class Database:
         self._sanity_check()
         with self._lock:
             self._sqlite.commit()
-            eprint(f'SFDB[{self._filename}] Committed {self._commit_counter} transactions during the last {"%.2f" % (time.time() - self._commit_timer)} seconds.')
+            log(f'SFDB[{self._filename}] Committed {self._commit_counter} transactions during the last {"%.2f" % (time.time() - self._commit_timer)} seconds.')
             self._commit_timer = time.time()
             self._commit_counter = 0
         return
@@ -113,7 +117,7 @@ class Database:
         with self._lock:
             self._sqlite.close()
             self._sqlite = None
-            eprint(f'SFDB[{self._filename}] Database connection closed.')
+            log(f'SFDB[{self._filename}] Database connection closed.')
         return
 
     def __iter__(self):
