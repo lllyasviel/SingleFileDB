@@ -12,7 +12,7 @@ It is very useful.
 
 No installation. No dependencies. 
 
-The only one python file has less than 150 lines of codes and only uses Python 3 standard libraries.
+The only one python file has **less than 150 lines of codes** and only uses Python 3 standard libraries.
 
 # Just try this
 
@@ -50,13 +50,31 @@ View (and even edit) your data anytime outside your project.
 
 ### 2. Fast Access from Memory
 
+If your database is small, you can just read everything to memory to various format with one line of code.
+
+```python
+import sfdb
+
+db = sfdb.Database(filename='test.db')
+
+cache = db.tolist()
+print(cache)
+# [('hello', 1), ('123', 'hi'), ('a', [1, 2, 3])]
+
+cache = db.todict()
+print(cache)
+# {'hello': 1, '123': 'hi', 'a': [1, 2, 3]}
+
+cache = db.keys()
+print(cache)
+# ['123', 'a', 'hello']
+```
+
+### 3. Process 10TB Data with 10MB Memory
+
 123
 
-### 3. Everything Thread-Safe
-
-123
-
-### 4. Process 10TB Data with 10MB Memory
+### 4. Everything Thread-Safe
 
 123
 
