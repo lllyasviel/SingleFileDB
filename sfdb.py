@@ -19,23 +19,23 @@ def eprint(*args, **kwargs):
 
 
 class SepaDB:
-    def __init__(self, name):
-        self._name = name
-        self._sqlite = sqlite3.connect(name if os.path.exists(name) else root + name + '.db', check_same_thread=False)
+    def __init__(self, filename):
+        self._filename = filename
+        self._sqlite = sqlite3.connect(self._filename, check_same_thread=False)
         self._sqlite.execute("CREATE TABLE IF NOT EXISTS DATA(ID TEXT NOT NULL UNIQUE, TIME TEXT NOT NULL, JSON TEXT NOT NULL, PRIMARY KEY (ID))")
         self._sqlite.commit()
         self._lock = threading.Lock()
         self._iterating = False
         self._commit_timer = time.time()
         self._commit_counter = 0
-        eprint(f'DB[{self._name}] Sqlite3 database ready with {len(self)} rows.')
+        eprint(f'DB[{self._filename}] Database ready with {len(self)} rows.')
 
     def _sanity_check(self):
-        assert self._sqlite is not None, f'DB[{self._name}] Database already closed.'
-        assert not self._iterating, f'DB[{self._name}] Database cannot be accessed in a iterating loop.'
+        assert self._sqlite is not None, f'DB[{self._filename}] Database already closed.'
+        assert not self._iterating, f'DB[{self._filename}] Database cannot be accessed in a iterating loop.'
 
     def _key_is_str(self, key):
-        assert isinstance(key, str), f'DB[{self._name}] All keys must be str, get \"{type(key).__name__}\" instead.'
+        assert isinstance(key, str), f'DB[{self._filename}] All keys must be str, get \"{type(key).__name__}\" instead.'
 
     def __len__(self):
         self._sanity_check()
@@ -104,7 +104,7 @@ class SepaDB:
         self._sanity_check()
         with self._lock:
             self._sqlite.commit()
-            eprint(f'DB[{self._name}] Committed {self._commit_counter} transactions during the last {"%.2f" % (time.time() - self._commit_timer)} seconds.')
+            eprint(f'DB[{self._filename}] Committed {self._commit_counter} transactions during the last {"%.2f" % (time.time() - self._commit_timer)} seconds.')
             self._commit_timer = time.time()
             self._commit_counter = 0
         return
@@ -117,7 +117,7 @@ class SepaDB:
         with self._lock:
             self._sqlite.close()
             self._sqlite = None
-            eprint(f'DB[{self._name}] Sqlite3 database connection closed.')
+            eprint(f'DB[{self._filename}] Database connection closed.')
         return
 
     def __iter__(self):
