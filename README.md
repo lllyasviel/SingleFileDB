@@ -8,7 +8,7 @@ It is very useful.
 
 # Installation
 
-**Just copy the single file "sfdb.py" to any project.**
+**Just copy the single file** "sfdb.py" **to any project.**
 
 No installation. No dependencies. 
 
