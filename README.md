@@ -134,7 +134,7 @@ All data updating are updated immediately from the perspective of your python pr
 
 (3) every 60 seconds.
 
-You can force current updates to be written to the hard disk with
+You can force the current updates to be written to the hard disk with
 
 ```python
 db.commit() # But you do not need to do it.
