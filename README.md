@@ -46,9 +46,9 @@ You can access all data even without using SFDB.
 
 View (and even edit) your data anytime outside your project.
 
-![example](https://raw.githubusercontent.com/lllyasviel/lllyasviel.github.io/master/f.jpg)
+![a1](https://raw.githubusercontent.com/lllyasviel/lllyasviel.github.io/master/db.jpg)
 
-![example](https://raw.githubusercontent.com/lllyasviel/lllyasviel.github.io/master/db.jpg)
+![a2](https://raw.githubusercontent.com/lllyasviel/lllyasviel.github.io/master/f.jpg)
 
 ### 2. Fast Access from Memory
 
@@ -74,11 +74,28 @@ print(cache)
 
 ### 3. Process 10TB Data with 10MB Memory
 
-123
+```python
+import sfdb
+
+db = sfdb.Database(filename='very_large_database_with_10TB.db')  # Oh god this database has 10 TB data.
+
+db['anything'] = 123456  # Update it without read database to memory.
+
+if 'another_thing' in db:
+    print('Cool!')  # Search item without read database to memory.
+
+print(db['another_another_thing'])  # Get item
+print(db.get('another_another_thing', default=None))  # Try to get item with default value as None if item not found.
+
+for key, value in db:
+    # Read all data items one-by-one. This only requires very small memory.
+    print(key)
+    print(value)
+```
 
 ### 4. Everything Thread-Safe
 
-123
+**Everything is thread-safe. Do anything you want to do. Your data are safe.**
 
 ### 5. Reliable Storage and Automatic Damage Repair
 
