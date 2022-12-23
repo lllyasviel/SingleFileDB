@@ -12,11 +12,24 @@ It is very useful.
 
 No installation. No dependencies. 
 
-The one single python file only uses Python 3 standard libraries, *with less than 150 lines of codes.*
+The only one python file has less than 150 lines of codes and only uses Python 3 standard libraries.
 
 # Get Started
 
-123
+```python
+import sfdb
+
+db = sfdb.Database(filename='test.db')  # Will create a new file or open an existing file.
+
+db['hello'] = 1
+db['123'] = 'hi'
+db['a'] = [1, 2, 3]
+db['bad'] = 'garbage'
+
+del db['bad']
+
+print(db['123'])  # Will print "hi".
+```
 
 # Features
 
