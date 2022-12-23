@@ -32,7 +32,7 @@ class Database:
 
     def _sanity_check(self):
         assert self._sqlite is not None, f'SFDB[{self._filename}] Database already closed.'
-        assert not self._iterating, f'SFDB[{self._filename}] Database cannot be accessed in a iterating loop.'
+        assert not self._iterating, f'SFDB[{self._filename}] Database cannot be accessed inside an iterating loop.'
 
     def _key_is_str(self, key):
         assert isinstance(key, str), f'SFDB[{self._filename}] All keys must be str, get \"{type(key).__name__}\" instead.'
