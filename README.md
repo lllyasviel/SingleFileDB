@@ -48,6 +48,8 @@ View (and even edit) your data anytime outside your project.
 
 ![a1](https://raw.githubusercontent.com/lllyasviel/lllyasviel.github.io/master/db.jpg)
 
+This is what you see in your file explorer:
+
 ![a2](https://raw.githubusercontent.com/lllyasviel/lllyasviel.github.io/master/f.jpg)
 
 ### 2. Fast Access from Memory
