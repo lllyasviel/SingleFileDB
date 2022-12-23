@@ -5,6 +5,7 @@ __pycache__/
 *$py.class
 
 *.db
+test.py
 
 # C extensions
 *.so
