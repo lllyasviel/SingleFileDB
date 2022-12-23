@@ -128,7 +128,7 @@ The hard disk writing is optimized to speed up the processing and protect your S
 
 All data updating are updated immediately from the perspective of your python program (*i.e.*, your code logic), but the actual writing to the hard disk only happens when 
 
-(1) your program quit, **OR**
+(1) your program quit/end, **OR**
 
 (2) every 16384 (16 * 1024) updates, **OR**
 
