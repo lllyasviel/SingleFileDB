@@ -144,3 +144,4 @@ class Database:
         self._sanity_check()
         with self._lock:
             return [(x[0], json.loads(x[1])) for x in self._sqlite.execute('SELECT ID, JSON FROM DATA').fetchall()]
+
