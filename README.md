@@ -12,7 +12,7 @@ It is very useful.
 
 No installation. No dependencies. 
 
-The one single python file only uses Python 3 standard libraries, with less than 150 lines of codes.
+The one single python file only uses Python 3 standard libraries, *with less than 150 lines of codes.*
 
 # Get Started
 
