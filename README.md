@@ -104,7 +104,13 @@ for key, value in db:
 
 ### 5. Reliable Storage and Automatic Damage Repair
 
-123
+All data are valid if you only write valid data.
+
+Quit you application with Ctrl+C does not damage the integrity of database structure.
+
+A reference is [here](https://www.sqlite.org/howtocorrupt.html):
+
+    An SQLite database is highly resistant to corruption. If an application crash, or an operating-system crash, or even a power failure occurs in the middle of a transaction, the partially written transaction should be automatically rolled back the next time the database file is accessed. The recovery process is fully automatic and does not require any action on the part of the user or the application.
 
 ### 6. Minimal Hard Disk Write
 
