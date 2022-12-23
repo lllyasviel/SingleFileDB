@@ -12,7 +12,9 @@ Just copy the **single file** "sfdb.py" to any project.
 
 No installation. No dependencies. 
 
-The [only one python file](https://github.com/lllyasviel/SingleFileDB/blob/main/sfdb.py) has **less than 150 lines of codes** and only uses Python 3 standard libraries.
+The only one python file has **less than 150 lines of codes** and only uses Python 3 standard libraries.
+
+Download the "sfdb.py" from [here](https://github.com/lllyasviel/SingleFileDB/releases).
 
 # Just try this
 
