@@ -17,3 +17,29 @@ The one single python file only uses Python 3 standard libraries, with less than
 # Get Started
 
 123
+
+# Features
+
+### 1. Human-Readable Storage
+
+123
+
+### 2. Fast Access from Memory
+
+123
+
+### 3. Everything Thread-Safe
+
+123
+
+### 4. Process 10TB Data with 10MB Memory
+
+123
+
+### 5. Reliable Storage and Automatic Damage Repair
+
+123
+
+### 6. Minimal Hard Disk Write
+
+123
