@@ -24,14 +24,14 @@ class Database:
         self._iterating = False
         self._commit_timer = time.time()
         self._commit_counter = 0
-        eprint(f'DB[{self._filename}] Database ready with {len(self)} rows.')
+        eprint(f'SFDB[{self._filename}] Database ready with {len(self)} rows.')
 
     def _sanity_check(self):
-        assert self._sqlite is not None, f'DB[{self._filename}] Database already closed.'
-        assert not self._iterating, f'DB[{self._filename}] Database cannot be accessed in a iterating loop.'
+        assert self._sqlite is not None, f'SFDB[{self._filename}] Database already closed.'
+        assert not self._iterating, f'SFDB[{self._filename}] Database cannot be accessed in a iterating loop.'
 
     def _key_is_str(self, key):
-        assert isinstance(key, str), f'DB[{self._filename}] All keys must be str, get \"{type(key).__name__}\" instead.'
+        assert isinstance(key, str), f'SFDB[{self._filename}] All keys must be str, get \"{type(key).__name__}\" instead.'
 
     def __len__(self):
         self._sanity_check()
@@ -100,7 +100,7 @@ class Database:
         self._sanity_check()
         with self._lock:
             self._sqlite.commit()
-            eprint(f'DB[{self._filename}] Committed {self._commit_counter} transactions during the last {"%.2f" % (time.time() - self._commit_timer)} seconds.')
+            eprint(f'SFDB[{self._filename}] Committed {self._commit_counter} transactions during the last {"%.2f" % (time.time() - self._commit_timer)} seconds.')
             self._commit_timer = time.time()
             self._commit_counter = 0
         return
@@ -113,7 +113,7 @@ class Database:
         with self._lock:
             self._sqlite.close()
             self._sqlite = None
-            eprint(f'DB[{self._filename}] Database connection closed.')
+            eprint(f'SFDB[{self._filename}] Database connection closed.')
         return
 
     def __iter__(self):
