@@ -95,7 +95,7 @@ print(db['another_thing'])
 print(db.get('another_thing', default=None))
 
 for key, value in db:
-    # Read all data items one-by-one. This only requires very small memory.
+    # Read data items one-by-one. This only requires very small memory.
     print(key)
     print(value)
 ```
