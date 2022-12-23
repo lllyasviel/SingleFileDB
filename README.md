@@ -21,13 +21,16 @@ import sfdb
 
 db = sfdb.Database(filename='test.db')  # Will create a new file or open an existing file.
 
+# Add or update items
 db['hello'] = 1
 db['123'] = 'hi'
 db['a'] = [1, 2, 3]
 db['bad'] = 'garbage'
 
+# Delete items
 del db['bad']
 
+# Read items
 print(db['123'])  # Will print "hi".
 ```
 
@@ -35,7 +38,15 @@ print(db['123'])  # Will print "hi".
 
 ### 1. Human-Readable Storage
 
-123
+Your data is stored with sqlite format, so that you can view all your data with any sqlite viewers like [SQLiteStudio](https://sqlitestudio.pl/) or [Jetbrain Datagrip](https://www.jetbrains.com/datagrip/).
+
+All items are human-readable json text. 
+
+You can access all data even without using SFDB.
+
+View (and even edit) your data anytime outside your project.
+
+![example](https://raw.githubusercontent.com/lllyasviel/lllyasviel.github.io/master/db.jpg)
 
 ### 2. Fast Access from Memory
 
