@@ -54,7 +54,7 @@ This is what you see in your file explorer:
 
 ### 2. Fast Access from Memory
 
-If your database is small, you can just read everything to memory to various format with one line of code.
+If your database is small, you can just read everything to memory in various format with one line of code.
 
 ```python
 import sfdb
