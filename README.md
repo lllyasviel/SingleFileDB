@@ -83,10 +83,10 @@ import sfdb
 
 db = sfdb.Database(filename='very_large_database_with_10TB.db')  # Oh god this database has 10 TB data.
 
-db['anything'] = 123456  # Update it without read database to memory.
+db['anything'] = 123456  # Update it without loading database to memory.
 
 if 'another_thing' in db:
-    print('Cool!')  # Search item without read database to memory.
+    print('Cool!')  # Search item without loading database to memory.
 
 # Get item
 print(db['another_thing'])  
