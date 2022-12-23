@@ -87,10 +87,10 @@ if 'another_thing' in db:
     print('Cool!')  # Search item without read database to memory.
 
 # Get item
-print(db['another_another_thing'])  
+print(db['another_thing'])  
 
 # Try to get item with default value as None if item not found.
-print(db.get('another_another_thing', default=None))
+print(db.get('another_thing', default=None))
 
 for key, value in db:
     # Read all data items one-by-one. This only requires very small memory.
