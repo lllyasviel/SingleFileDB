@@ -86,8 +86,11 @@ db['anything'] = 123456  # Update it without read database to memory.
 if 'another_thing' in db:
     print('Cool!')  # Search item without read database to memory.
 
-print(db['another_another_thing'])  # Get item
-print(db.get('another_another_thing', default=None))  # Try to get item with default value as None if item not found.
+# Get item
+print(db['another_another_thing'])  
+
+# Try to get item with default value as None if item not found.
+print(db.get('another_another_thing', default=None))
 
 for key, value in db:
     # Read all data items one-by-one. This only requires very small memory.
