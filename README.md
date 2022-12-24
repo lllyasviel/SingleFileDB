@@ -19,7 +19,8 @@ The only one python file has **less than 150 lines of codes** and only uses Pyth
 ```python
 import sfdb
 
-db = sfdb.Database(filename='test.db')  # Will create a new file or open an existing file.
+# Will create a new file or open an existing file.
+db = sfdb.Database(filename='test.db')
 
 # Add or update items
 db['hello'] = 1
@@ -81,12 +82,15 @@ You can process any large data without loading everything to your memory.
 ```python
 import sfdb
 
-db = sfdb.Database(filename='very_large_database_with_10TB.db')  # Oh god this database has 10 TB data.
+# Oh god this database has 10 TB data.
+db = sfdb.Database(filename='very_large_database_with_10TB.db')
 
-db['anything'] = 123456  # Update it without loading database to memory.
+# Update it without loading database to memory.
+db['anything'] = 123456
 
+# Search item without loading database to memory.
 if 'another_thing' in db:
-    print('Cool!')  # Search item without loading database to memory.
+    print('Cool!')
 
 # Get item
 print(db['another_thing'])  
@@ -95,7 +99,8 @@ print(db['another_thing'])
 print(db.get('another_thing', default=None))
 
 for key, value in db:
-    # Read data items one-by-one. This only requires very small memory.
+    # Read data items one-by-one.
+    # This only requires very small memory.
     print(key)
     print(value)
 ```
