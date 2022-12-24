@@ -6,6 +6,8 @@ I use this to store millions of image metadata in many machine learning projects
 
 It is very useful. 
 
+My mom no longer has to worry that I burned up my SSD by storing many millions of '.json' files to train a Stable Diffusion model.
+
 # Installation
 
 Just copy the **single file** "sfdb.py" to any project - download it from [here](https://github.com/lllyasviel/SingleFileDB/releases).
