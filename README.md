@@ -33,6 +33,7 @@ del db['bad']
 
 # Read items
 print(db['123'])  # Will print "hi".
+print(len(db))  # Will print "3".
 ```
 
 # And you will immediately get
