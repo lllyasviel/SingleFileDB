@@ -4,9 +4,7 @@ A single file implementation of key-value database for Python 3.
 
 I use this to store millions of image metadata in many machine learning projects. 
 
-It is very useful. 
-
-My mom no longer has to worry that I burned up my SSD by storing many millions of '.json' files to train a Stable Diffusion model.
+SFDB is especially useful when I want to store millions of Stable Diffusion prompts. Its effectiveness is also validated in my many other projects.
 
 # Installation
 
