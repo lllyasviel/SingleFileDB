@@ -8,7 +8,7 @@ SFDB is especially useful when I want to store millions of Stable Diffusion prom
 
 # Installation
 
-Just copy the **single file** "sfdb.py" to any project - download it from [here](https://github.com/lllyasviel/SingleFileDB/releases).
+Just copy the **single file** "sfdb.py" to any project.
 
 No installation. No dependencies. 
 

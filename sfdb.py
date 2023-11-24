@@ -19,9 +19,12 @@ def log(*args, **kwargs):
 
 
 class Database:
-    def __init__(self, filename):
+    def __init__(self, filename, read_only=False):
         self._filename = filename
-        self._sqlite = sqlite3.connect(self._filename, check_same_thread=False)
+        if read_only:
+            self._sqlite = sqlite3.connect(f'file:{self._filename}?mode=ro', check_same_thread=False, uri=True)
+        else:
+            self._sqlite = sqlite3.connect(self._filename, check_same_thread=False)
         self._sqlite.execute("CREATE TABLE IF NOT EXISTS DATA(ID TEXT NOT NULL UNIQUE, TIME TEXT NOT NULL, JSON TEXT NOT NULL, PRIMARY KEY (ID))")
         self._sqlite.commit()
         self._lock = threading.Lock()
